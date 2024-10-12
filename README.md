@@ -1,6 +1,6 @@
 <div style="text-align: center;">
   <h1 align="center">Second-hand Vehicle Buying and Selling System</h1>
-  CS 353 - Database Systems: Section 2 | Group 12
+  CS 353 - Database Systems: Section 1&2 | Group 12
 </div>
 
 ## Deliverables:
