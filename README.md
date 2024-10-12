@@ -10,7 +10,7 @@
     <th>Link</th>
   <tr>
     <td>Project Proposal</td>
-    <td><a href="[/Proposal/Group 12 Project Proposal.pdf](https://docs.google.com/document/d/1ezTwvnIgBcp1_1w9dMBgaGbdbkPCdjz78VTJMZhHU6I/edit?usp=sharing)">Link</a></td>
+    <td><a href="https://docs.google.com/document/d/1ezTwvnIgBcp1_1w9dMBgaGbdbkPCdjz78VTJMZhHU6I/edit?usp=sharing">Link</a></td>
   </tr>
   <tr>
     <td>Design Report</td>
