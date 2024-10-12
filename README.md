@@ -44,7 +44,6 @@ The system will include an **admin panel** for platform monitoring, which will d
 <table align="center">
   <tbody>
     <tr>
-      <td align="center" valign="top" width="20%"><b>Ekrem Polat</b></td>
       <td align="center" valign="top" width="20%"><b>Emre Can Yoloğlu</b></td>
       <td align="center" valign="top" width="20%"><b>Mehmet Efe Sak</b></td>
       <td align="center" valign="top" width="20%"><b>Murat Ertan</b></td>
