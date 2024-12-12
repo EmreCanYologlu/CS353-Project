@@ -1,57 +1,216 @@
-<div style="text-align: center;">
-  <h1 align="center">Second-hand Vehicle Buying and Selling System</h1>
-  CS 353 - Database Systems: Section 1&2 | Group 12
-</div>
+# CarMarket - Vehicle Marketplace Application
 
-## Deliverables:
+A full-stack web application for buying and selling vehicles, built with Flask, React, and PostgreSQL.
 
-<table align="center">
-    <th>Description</th>
-    <th>Link</th>
-  <tr>
-    <td>Project Proposal</td>
-    <td><a href="https://docs.google.com/document/d/1ezTwvnIgBcp1_1w9dMBgaGbdbkPCdjz78VTJMZhHU6I/edit?usp=sharing">Link</a></td>
-  </tr>
-  <tr>
-    <td>Design Report</td>
-    <td>TBD</td>
-  </tr>
-  <tr>
-  <td>Final Report</td>
-  <td>TBD</td>
-  </tr>
-</table>
-<p><i>Use CTRL + click to open links in new tab. </i></p>
+## Features
 
-## 🎯 Goals
+- User authentication and authorization
+- Vehicle listings with advanced search and filtering
+- Bidding system
+- Rating and review system
+- Admin dashboard
+- Real-time notifications
+- Responsive design
 
-The **Second-hand Vehicle Buying and Selling System** project aims to develop a database system where users can buy and sell second-hand vehicles. The platform will enable sellers to create detailed vehicle ads by inputting essential information such as make, model, year, price, mileage, and more. Buyers will have the ability to search and filter listings based on various criteria, such as price, vehicle type, or location, to find the most suitable options.
+## Technology Stack
 
-### Additional Features:
-- The system will include user accounts where sellers can manage their ads and buyers can save their favorite listings.
-- A messaging system will allow buyers and sellers to communicate securely within the platform.
-- The system will offer a review feature where buyers can leave feedback about their experience with the seller.
-- Sellers can highlight ads for increased visibility.
+### Backend
+- Flask (Python web framework)
+- PostgreSQL (Database)
+- SQLAlchemy (ORM)
+- Flask-JWT-Extended (Authentication)
+- Gunicorn (WSGI server)
 
-### Admin Panel:
-The system will include an **admin panel** for platform monitoring, which will display key statistics such as:
-- Daily number of ads posted.
-- Overall platform activity, such as total transactions and user engagement.
-- Suspicious activity alerts to ensure platform security.
+### Frontend
+- React (UI library)
+- TypeScript
+- Tailwind CSS (Styling)
+- React Query (Data fetching)
+- React Router (Routing)
+- React Hook Form (Forms)
+- Lucide Icons
 
-## 👥 Team members:
+### DevOps
+- Docker
+- Nginx
+- Redis (Caching)
 
-<table align="center">
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="20%"><b>Emre Can Yoloğlu</b></td>
-      <td align="center" valign="top" width="20%"><b>Mehmet Efe Sak</b></td>
-      <td align="center" valign="top" width="20%"><b>Murat Ertan</b></td>
-      <td align="center" valign="top" width="20%"><b>Amirhossein Ahani</b></td>
-      <td align="center" valign="top" width="20%"><b>Osman Baktır</b></td>
-    </tr>
-    <tr>
-      <td align="center" valign="top" colspan="6">Group 12 - Second-hand Vehicle Buying and Selling System</td>
-    </tr>
-  </tbody>
-</table>
+## Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL 15+
+- Docker & Docker Compose (optional)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/car-market.git
+cd car-market
+```
+
+2. Set up the backend:
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.template .env  # Update with your configurations
+flask db upgrade
+```
+
+3. Set up the frontend:
+```bash
+cd frontend
+npm install
+cp .env.template .env  # Update with your configurations
+```
+
+## Running the Application
+
+### Development Mode
+
+1. Start the backend server:
+```bash
+cd backend
+flask run
+```
+
+2. Start the frontend development server:
+```bash
+cd frontend
+npm run dev
+```
+
+### Production Mode (Docker)
+
+```bash
+docker-compose up --build
+```
+
+## Testing
+
+### Backend Tests
+```bash
+cd backend
+pytest
+```
+
+### Frontend Tests
+```bash
+cd frontend
+npm test
+```
+
+## Project Structure
+
+```
+car-market/
+├── backend/
+│   ├── app/
+│   │   ├── routes/
+│   │   ├── models/
+│   │   └── utils/
+│   ├── tests/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── config.py
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   └── services/
+│   ├── Dockerfile
+│   └── package.json
+├── docker-compose.yml
+└── README.md
+```
+
+## API Documentation
+
+### Authentication Endpoints
+
+```
+POST /api/auth/register
+POST /api/auth/login
+GET /api/auth/profile
+PUT /api/auth/profile
+```
+
+### Vehicle Endpoints
+
+```
+GET /api/ads/vehicles
+POST /api/ads/vehicles
+GET /api/ads/vehicles/:id
+PUT /api/ads/vehicles/:id
+DELETE /api/ads/vehicles/:id
+```
+
+### Bid Endpoints
+
+```
+POST /api/ads/vehicles/:id/bids
+GET /api/ads/vehicles/:id/bids
+```
+
+### Rating Endpoints
+
+```
+POST /api/ratings
+GET /api/ratings/:sellerId
+GET /api/users/:userId/rating-summary
+```
+
+### Search Endpoints
+
+```
+GET /api/search
+GET /api/search/suggestions
+GET /api/search/popular
+```
+
+## Environment Variables
+
+### Backend (.env)
+
+```
+FLASK_APP=app.py
+FLASK_ENV=development
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cardb
+JWT_SECRET_KEY=your-secret-key
+REDIS_URL=redis://localhost:6379/0
+```
+
+### Frontend (.env)
+
+```
+VITE_API_URL=http://localhost:5000/api
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit changes: `git commit -am 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built with [Flask](https://flask.palletsprojects.com/)
+- UI components from [Tailwind CSS](https://tailwindcss.com/)
+- Icons from [Lucide](https://lucide.dev/)
+
+## Contact
+
+Your Name - your.email@example.com
+Project Link: https://github.com/yourusername/car-market
+```
